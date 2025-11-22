@@ -21,91 +21,66 @@
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      background: #121212;
+      font-family: Arial, sans-serif;
       height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(120deg, #141e30, #243b55);
-      background-size: 300% 300%;
-      animation: bgMove 12s ease infinite;
+      flex-direction: column;
     }
 
-    @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .card {
-      width: 90%;
-      max-width: 850px;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      text-align: center;
-    }
-
-    h1 {
-      color: white;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #00c8ff;
+    /* Top toolbar */
+    .toolbar {
+      width: 100%;
+      padding: 12px;
+      background: #1e1e1e;
+      display: flex;
+      gap: 10px;
+      box-sizing: border-box;
+      border-bottom: 2px solid #00c8ff;
     }
 
     #urlInput {
-      width: 70%;
-      padding: 12px;
+      flex: 1;
+      padding: 10px;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 6px;
       border: none;
       outline: none;
-      background: rgba(255, 255, 255, 0.85);
+      background: #fff;
     }
 
     #searchButton {
-      padding: 12px 20px;
-      margin-left: 10px;
+      padding: 10px 18px;
       font-size: 16px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 6px;
       background: #00c8ff;
-      color: #000;
       font-weight: bold;
+      cursor: pointer;
       transition: 0.2s;
     }
 
     #searchButton:hover {
-      transform: scale(1.05);
       background: #00e1ff;
+      transform: scale(1.05);
     }
 
     iframe {
       width: 100%;
-      height: 500px;
-      margin-top: 25px;
+      height: calc(100vh - 56px); /* fullscreen minus toolbar */
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
       background: #000;
     }
   </style>
-
 </head>
 
 <body>
-  <div class="card">
-    <h1>Code1 Proxy</h1>
-
+  <div class="toolbar">
     <input type="text" id="urlInput" placeholder="Enter URL here">
     <button id="searchButton">Go</button>
-
-    <iframe id="iframeWindow"></iframe>
   </div>
+
+  <iframe id="iframeWindow"></iframe>
 
   <script src="example.js"></script>
 </body>
